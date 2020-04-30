@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.apdoer.signature.service.mapper.MsBrokerApikeyMapper">
+  <resultMap id="BaseResultMap" type="org.apdoer.signature.service.model.po.MsBrokerApikeyPo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="key_name" jdbcType="VARCHAR" property="keyName" />
+    <result column="access_key" jdbcType="VARCHAR" property="accessKey" />
+    <result column="secret_key" jdbcType="VARCHAR" property="secretKey" />
+    <result column="enabled" jdbcType="INTEGER" property="enabled" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+    <select id="selectByApiKey" resultMap="BaseResultMap">
+        SELECT id,user_id,key_name,access_key,secret_key,enabled,create_time
+        FROM ms_broker_apikey WHERE access_key = #{accessKey}
+    </select>
+
+</mapper>
